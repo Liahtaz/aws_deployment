@@ -1,2 +1,2 @@
-# was_deployment
+# aws_deployment
 Deploying to AWS

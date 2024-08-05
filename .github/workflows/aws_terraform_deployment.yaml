@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   hello-world:
+    environment: aws
     runs-on: ubuntu-latest
     steps:
       - name: git checkout repo

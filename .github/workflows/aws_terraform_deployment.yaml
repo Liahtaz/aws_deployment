@@ -1,0 +1,25 @@
+# Original workflow copied from: 
+# https://www.terraformbyexample.com/hello-world/
+name: Hello World Terraform
+on:
+  workflow_dispatch:
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout repo
+        uses: actions/checkout@v3
+      - name: install terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: terraform init
+        working-directory: ./terraform
+        run: |
+          terraform init
+      - name: terraform plan
+        working-directory: ./terraform
+        run: |
+          terraform plan
+      - name: terraform apply
+        working-directory: ./terraform
+        run: |
+          terraform apply --auto-approve

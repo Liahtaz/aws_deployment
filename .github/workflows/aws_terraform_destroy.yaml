@@ -1,0 +1,33 @@
+name: Terraform Destroy
+on:
+  workflow_dispatch:
+jobs:
+  hello-world:
+    environment: aws
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout repo
+        uses: actions/checkout@v3
+        ## Login to aws from marketplace: https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+        # Original workflow copied from: 
+        # https://www.terraformbyexample.com/hello-world/
+      - name: install terraform
+        uses: hashicorp/setup-terraform@v3
+      - name: terraform init
+        working-directory: ./terraform
+        run: |
+          terraform init
+      - name: terraform plan
+        working-directory: ./terraform
+        run: |
+          terraform plan
+      - name: terraform destroy
+        working-directory: ./terraform
+        run: |
+          terraform destroy --auto-approve

@@ -20,15 +20,15 @@ jobs:
       - name: install terraform
         uses: hashicorp/setup-terraform@v3
       - name: terraform init
-        working-directory: ./terraform
+        working-directory: ./terraform/hello_world
         run: |
           terraform init
       - name: terraform plan
-        working-directory: ./terraform
+        working-directory: ./terraform/hello_world
         run: |
           terraform plan
       - name: terraform apply
-        working-directory: ./terraform
+        working-directory: ./terraform/hello_world
         run: |
           terraform apply --auto-approve
 

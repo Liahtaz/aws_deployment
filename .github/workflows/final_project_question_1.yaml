@@ -2,7 +2,7 @@ name: Final project question 1
 on:
   workflow_dispatch:
 jobs:
-  hello-world:
+  terraform-apply:
     environment: aws
     runs-on: ubuntu-latest
     steps:

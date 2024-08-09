@@ -3,7 +3,7 @@
 terraform {
   backend "s3" {
     bucket = "liahtaz-terraform"
-    key    = "aws"
+    key    = "aws.json"
     region = "us-east-1"
   }
 }

@@ -20,14 +20,14 @@ jobs:
       - name: install terraform
         uses: hashicorp/setup-terraform@v3
       - name: terraform init
-        working-directory: ./terraform
+        working-directory: ./terraform/aws
         run: |
           terraform init
       - name: terraform plan
-        working-directory: ./terraform
+        working-directory: ./terraform/aws
         run: |
           terraform plan
       - name: terraform destroy
-        working-directory: ./terraform
+        working-directory: ./terraform/aws
         run: |
           terraform destroy --auto-approve
